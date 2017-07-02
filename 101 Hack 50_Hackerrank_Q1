@@ -1,0 +1,38 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <assert.h>
+#include <limits.h>
+#include <stdbool.h>
+#include <ctype.h>
+
+int maxScoreOfVincent(int n, char* s, char* t) {
+    int i=0;
+    int count=0;
+    while(s[i]!='\0'){
+        if(isalpha(s[i])&&s[i]!=t[i])
+        {count++;}
+        else if(t[i]=='.'&&isalpha(s[i]))
+        {
+            count++;
+        }
+        i++;
+            
+        
+    }
+    return count;
+}
+
+int main() {
+    //  Return the maximum score of Vincent.
+    int n; 
+    scanf("%i", &n);
+    char* s = (char *)malloc(512000 * sizeof(char));
+    scanf("%s", s);
+    char* t = (char *)malloc(512000 * sizeof(char));
+    scanf("%s", t);
+    int result = maxScoreOfVincent(n, s, t);
+    printf("%d\n", result);
+    return 0;
+}
