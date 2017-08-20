@@ -1,0 +1,54 @@
+Sonal#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+int isPalindrome(char str[])
+{
+   
+    int l = 0;
+    int h = strlen(str) - 1;
+    while (h > l)
+    {
+        if (str[l++] != str[h--])
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+int replacecount(char str[]){
+    int l =0;
+    int count=0;
+    int h = strlen(str) -1;
+    while(h>l){
+        if (str[l++] != str[h--])
+        {
+            count++;
+        }
+    }
+    return count;
+}
+int noOfAppends(char s[])
+{
+    if (isPalindrome(s))
+        return 0;
+    s++;
+ 
+    return 1 + noOfAppends(s);
+}
+int main()
+{
+    char p[50001];
+    scanf("%s",&p);
+    if(isPalindrome(p)){
+        printf("0");
+    }
+    else {
+        int min1=replacecount(p);
+        int min2=noOfAppends(p);
+        if(min1<min2){
+            printf("%d",min1);
+        }
+        else printf("%d",min2);
+    }
+    return 0;
+}
