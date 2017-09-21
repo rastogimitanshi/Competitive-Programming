@@ -1,0 +1,31 @@
+#include <iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+   long int n,k;
+   scanf("%ld",&n);
+   scanf("%ld",&k);
+   long int i=0;
+   double arrx[n];
+   double arry[n];
+   while(i<n){
+       cin>>arrx[i++];
+   }
+   i=0;
+   while(i<n){
+       cin>>arry[i++];
+   }
+   double arrz[n];
+   i=0;
+   while(i<n){
+       arrz[i]=(sqrt((arrx[i]*arrx[i])+(arry[i]*arry[i]))));
+       i++;
+   }
+   sort(arrz,arrz+n);
+  long int ans = ceil(arrz[k-1]);
+  cout<<ans;
+   
+    return 0;
+}
